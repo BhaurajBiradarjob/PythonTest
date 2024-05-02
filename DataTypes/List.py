@@ -136,9 +136,199 @@ pop() - If the item is not present in range then we will get IndexError
 '''
 
 #reverse() method
-list1 =["Orange", 22, 33,44, 55,"Red"]
-print(list)
-list1.reverse()
-print(list1)
+# list1 =["Orange", 22, 33,44, 55,"Red"]
+# print(list)
+# list1.reverse()
+# print(list1)
+
+# sort()
+# numbers = [12, 1,13,15,16,18]
+# numbers.sort() # ascending order
+# print(numbers) 
+
+# numbers.sort(reverse=True) # descending order
+# print(numbers)
+
+# names = ["ABC", "BCD", "XX", "YYY"]
+# names.sort()
+# print(names)
+
+# names.sort(reverse=True)
+# print(names)
+
+# In Sort method the list should contains homogenous elements, otherwise we will get error
+
+# x=["python", 23, "C++", 55.66]
+# x.sort() # error
+# x.sort(reverse=True) # error
+
+# Aliasing the list
+# numbers1=[22,33,44,55,66]
+# numbers2 = numbers1
+# print(numbers2)
+# print(numbers1)
+
+# print(id(numbers1))
+# print(id(numbers2))
+
+# numbers2[2] =20
+# print(numbers1)
+
+# We can create duplicate independent objects which is called cloning in list.
+# Possible using slicing or using copy() method
+
+# numbers1=[22,33,44,55,66]
+# Creating new memory location for numbers2
+# numbers2 = numbers1[:]
+
+# numbers2[2] =20
+# print(numbers1)
+# print(numbers2)
+
+# using copy() method
+# numbers1=[22,33,44,55,66]
+# numbers2 = numbers1.copy()
+
+# print(f"{id(numbers1), id(numbers2)}")
+# numbers2[2] =50
+# print(numbers1)
+# print(numbers2)
+
+# We can join 2 list objects using + operator and returns single list object
+# l1=["x","y","z"]
+# l2 =[1,2,3,4,5]
+
+# l3=l1+l2
+# print(l3)
+
+# Both the operands should be list type, otherwise we will get error
+# str1="Python"
+# l1 = [1,2,3]
+# print(str1+l1) # error
+
+# Using * operator
+# numbers = [1,2,3,4]
+# l1 = numbers * 2
+# print(l1) # doubles the list
+
+# list comparison
+'''
+We can use relational operator on the first objects for comparing 2 lists,
+so in this case the first 2 items are compared, and if they are not same
+then the correspounding result is returned.
+
+If they are equal then the next 2 items are compared
+It compares the correspounding elements of the lists starting from the first index until a
+mismatch is found and all elements are compared
+
+'''
+# l1=[1,2,3]
+# l2=[2,3,4]
+# print(l1>l2)
+# print(l1<l2)
+# print(id(l1[0]))
+# print(id(l2[0]))
+
+'''
+Here all the correspounding elements in the list are equal, the comparison
+proceed to the next level.
+
+Since there are no elements to compare, the result is False because the lists 
+are considered equal.
+'''
+# print([5,6,7]<=[5,6,7])
+# print([5,6,7]==[5,6,7])
+
+# print(id(l1[0]))
+# print(id(l1[1]))
+# print(id(l2[0]))
+# print(id(l2[1]))
+
+'''
+Here we are using > operator, so the comparison starts from the first elements
+which is True, the next element compares which is also True, so the final element 
+is True and the result is True.
+'''
+# print([5,6,7]>[4,4,5])
+
+# List comparison with strings
+# a=["xyz","abc","www"]
+# b=["aaa", "bbb","ccc"]
+# c=["xyz","abc","www"]
+# d=["xyz","abc","www","qqq"]
+
+# print(a==c)
+# print(a==b)
+# print(b==c)
+# print(a==d)
+
+'''
+List unpacking also known as iterable unpacking or destructing which is a feature in
+python that allows to assign the elements of a list to individual variables
+'''
+# fruits =["Banana","Mango", "Grapes", "Apple"]
+# fruit1, fruit2, fruit3, fruit4 = fruits
+# print(f"{fruit1} - {fruit2} - {fruit3} - {fruit4}")
+
+# numbers = [1,2,3,4,5]
+# first, second, *rest = numbers
+# print(f"{first} - {second} and {rest}")
+
+# first, *rest, last = numbers
+# print(f"{first} - {rest} and {last}")
 
 
+# In and Not In operators
+# numbers = [1,2,3,4,5]
+
+# print(5 in numbers)
+# print(5 not in numbers)
+# print(11 in numbers)
+# print(11 not in numbers)
+
+# Nested list
+# nested_list = [
+#     [1,2,3],
+#     [4,5,6],
+#     [7,8,9]
+# ]
+
+# print(nested_list)
+# print(nested_list[1][1])
+
+# nested_list[1][1] = 100
+# nested_list[2][2] = 400
+
+# print(nested_list)
+
+'''
+List comprehension 
+is an concise and expressive way to create lista that allows us to
+generate a new list by appliyng an expression to each element
+of an existing iterables(list, tuple, range)
+
+Syntax:
+list=[expression for item in iterable]
+'''
+# numbers = [1,2,3,4,5, 6]
+# squares = [x**2 for x in numbers]
+# print(squares)
+
+'''
+List comprehension consists of 3 parts
+expression - so here x**2 defines what operation to perform on each element of the iterable,
+so in that case it squares each element x.
+
+iteration - for clause specifies the iteration over the existing iteration in each iteration
+
+option condition - this can be added to filter the elements based on the conditions
+
+list = [expression for item in iterable if statement]
+'''
+
+# numbers = [1,2,3,4,5, 6]
+# even_number = [x for x in numbers if x%2 == 0]
+# odd_number = [x for x in numbers if x%2 ==1]
+
+# print(even_number)
+# print(odd_number)
