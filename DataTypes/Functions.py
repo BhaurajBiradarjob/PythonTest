@@ -300,13 +300,265 @@ the function scope. This is necessary when we want to modify a global variable f
 a function
 
 '''
-global_var = 10
+# global_var = 10
 
-def modify_global():
-    global global_var
-    global_var = 20
-    print(f"Inside the function {global_var}")
+# def modify_global():
+#     global global_var
+#     global_var = 20
+#     print(f"Inside the function {global_var}")
 
-print(f"Before the function {global_var}")
-modify_global()
-print(f"After the function {global_var}")
+# print(f"Before the function {global_var}")
+# modify_global()
+# print(f"After the function {global_var}")
+
+# globals() function
+'''
+This function returns a dictionary representing the current global symbol table.
+The symbol table contains information about all the global variables and their corresponding
+values.
+So globals() function can be useful when we want to inspect or manipulate global variables
+dynamically at runtime.
+
+'''
+# global_var=10
+# def modify_global():
+#     global global_var
+#     global_var = 55
+
+# def print_global_variables():
+#     print(f"Global variables: {global_var}")
+
+# print(f"Before modification: {global_var}")
+# modify_global()
+# print(f"After modification: {global_var}")
+# print(f"Global variable before update: {globals()}")
+# globals()["global_var"] = 101
+# print(f"Global variable before update: {globals()}")
+# print_global_variables()
+
+# Recursive function - a function which is called by its self
+# Factorial number
+'''
+factorial(5) = 5 * factorial(4)
+factorial(4) = 4 * factorial(3)
+factorial(3) = 3 * factorial(2)
+factorial(2) = 2 * factorial(1)
+1 * factorial(0) = 5 * 4 * 3 * 2 * 1
+'''
+# def factorial(n):
+#     if n==0:
+#         result = 1
+#     else:
+#         result = n*factorial(n-1)
+
+#     return result
+
+# result = factorial(5)
+
+# print(f"Factorial of 5 is {result}")
+
+# Lambda function
+'''
+A lambda function  is a small anonymous function that can have any number of arguments
+but can only have one expression
+
+Lambda expression or lambda function or lambda from
+
+Lambda function are defined using the lambda keyword and they are commonly used when we
+need a simple function for a short period of time.
+Syntax:
+
+lambda arguments : expression
+'''
+
+# add = lambda x,y : x + y
+
+# result = add(10,20)
+
+# print(f"Result : {result}")
+
+# square = lambda x : x*x
+
+# result = square(10)
+
+# print(f"Square of 10 is {result}")
+
+'''
+Points:
+- A lambda function can take any number of arguments but should have only one expression
+- It takes the parameters and does some operation on them and returns the result just the
+same as normal function
+- the lambda function, mostly can be used in combination with other functions such as
+map(), filter() etc..
+- It can be used for only simple functions but not for complex functions and it improves
+readability of the code.
+
+'''
+# filter() function
+'''
+filter() function allows us to filter the elements from a sequence(list, tuple or string)
+based on a given function(predicate)
+The function takes 2 arguments
+- The predicate function
+- the iterable to filter.
+
+Syntax:
+filter(function, iterable)
+
+- A function that takes an element from the iterable as input and returns either True or False
+'''
+
+# def iseven(number):
+#     return number%2==0
+
+# numbers = [1,2,3,4,5,6,7,8,9,10]
+# even_number = filter(iseven, numbers)
+# print(even_number)
+# print(list(even_number))
+
+# numbers = [-2, -1, 0, 3,44, 55, -6]
+# positive_number = filter(lambda x: x > 0, numbers)
+
+# print(positive_number)
+# print(list(positive_number))
+
+# map() function
+'''
+map() function allows us to apply a given function to each item in a iterable(ex : list,
+tuple or string) and returns a new iterator containing the results.
+
+Syntax:
+map(function, iterable)
+
+'''
+
+# def square(c):
+#     return c**2
+
+# numbers=[1,2,3,4,5,6,7,8,9,10]
+
+# square_numbers = map(square, numbers)
+# result = list(square_numbers)
+# print(result)
+
+# words=["A", "B", "C", "D", "E", "F", "G", "H"]
+# capitalize = map(lambda x: x.swapcase(), words)
+# print(list(capitalize))
+
+'''
+The reduce() function is a  built in function from the "functools" module that
+allows to reduce a sequence(ex: list, tuple or string) to a single value by
+applying a given function cumulatively to the items in the sequence.
+
+Syntax:
+
+functools.reduce(function, iterable[,initializer])
+
+initializer is a optional value
+If provided the function will start with this initial value
+
+'''
+
+# from functools import reduce
+
+# def add(x,y):
+#     return x+y
+
+# numbers=[10,20,30,40,50,60,70,80]
+# result = reduce(add, numbers)
+# print(f"Result is : {result}")
+
+
+# Decorators
+'''
+A decorator is a function that accepts a function as a parameter and returns a
+function. Decorators are useful to perform some additional processing required 
+by a function.
+
+Extension function
+'''
+# Example 1
+# def decor(func):
+#     def inner_function(x,y):
+#         if x<0:
+#             x=0
+#         if y<0:
+#             y=0
+
+#         return func(x,y)
+    
+#     return inner_function
+
+# def add(a,b):
+#     return a + b
+
+# add1 = decor(add)
+# print(add1(20,30))
+# print(add1(20,20))
+
+# Example 2
+
+# def decor(func):
+#     def inner_function(x,y):
+#        if x<0:
+#            x=0
+#        if y<0:
+#              y=0
+
+#        return func(x,y)
+#     return inner_function
+
+# @decor
+# def add(a,b):
+#     return a+b
+
+# @decor
+# def sub(a,b):
+#     return a-b
+
+# print(add(30,-40))
+# print(add(30,40))
+
+# print(sub(30,-40))
+# print(sub(30,40))
+
+# generators()
+'''
+Generators are like functions which give us a sequence of values one as an 
+iterable, it contains yield statement just like as function contain
+return statement.
+'''
+# def fnc():
+#     yield "ZZZ"
+#     yield "AAA"
+
+# res = fnc()
+# print(res)
+
+# print(type(res))
+
+# for g in res:
+#     print(g)
+
+# Example 2
+# def fnc(a,b):
+#     while a<=b:
+#         yield a
+#         a+=1
+
+# res = fnc(10, 20)
+
+# for g in res:
+#     print(g)
+
+# next function
+# We can use next function on the iterator returned by the generator, if we want to
+# retrive elements from the generator
+
+def fnc():
+    yield "ZZZ"
+    yield "AAA"
+
+res=fnc()
+print(next(res))
+print(next(res))
